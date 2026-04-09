@@ -78,6 +78,7 @@ if(isEverythingMarked()){
     let content = "";
     content += result1forText;
     container.innerHTML = content;
+    container.style.display = 'none';
     overlay.style.display = 'flex';
 }
 })
@@ -88,6 +89,8 @@ control_buttons[0].addEventListener("click", ()=>{
 })
 
 control_buttons[1].addEventListener("click", ()=>{
+    const container = document.getElementById('results-data');
+    container.style.display = 'block';
 let data = result1forText.replaceAll(`<br>`, `\n`);
 
 
