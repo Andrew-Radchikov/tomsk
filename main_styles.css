@@ -1,0 +1,51 @@
+body{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    min-height: 100vh;
+    margin: 0;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+
+header{
+    display: block;
+    height: 70px;
+    text-align: center;
+    font-size: 40px;
+    background-color: rgba(175, 221, 220);
+}
+
+main{
+    display: flex;
+    flex: 1;
+    justify-content: space-evenly;
+    flex-direction: column;
+    background-color: rgba(175, 221, 220);
+}
+
+.information{
+    margin: auto;
+    display: block;
+    font-size: 24px;
+
+}
+
+button{
+    margin: auto;
+    width: 400px;
+    height: 50px;
+    font-weight: bold;
+        font-size: 28px;
+        background-color: rgba(76, 175, 80);
+}
+
+footer{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px;
+    background-color: rgba(155, 241, 240);
+
+}
