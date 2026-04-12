@@ -29,17 +29,36 @@ main{
 /* Выше база */
 
 
+/* Блок с персональными данными */
+.personal_data_div{
+    padding-left: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.personal_select{
+    width: 150px;       /* Устанавливаем общую ширину */
+    height: 30px;      /* Устанавливаем общую высоту */
+    padding: 0 5px;    /* Небольшой отступ текста внутри */
+    box-sizing: border-box; /* Чтобы рамки не «раздували» размер */
+    font-size: 18px;
+}
+
+
+/* Пошли тесты */
+
 .test_name{
     padding-left: 10px;
     font-size: 18px;
     font-weight: bold;
 }
 
+/* Индекс устойчивости идентичности */
+
 .identity_question{
-padding-left: 10px;    
-font-size: 18px;
-
-
+    padding-left: 10px;    
+    font-size: 18px;
 }
 
 .identity_question.error {
@@ -52,6 +71,9 @@ font-size: 18px;
 
 
 
+
+/* Финал с кнопкой */
+
 .final{
     font-size: 28px;
     background-color: rgba(76, 175, 80);
@@ -59,9 +81,9 @@ font-size: 18px;
 }
 
 .div_button{
-   margin: auto;
-width: 300px;
-height: 60px;
+    margin: auto;
+    width: 300px;
+    height: 60px;
 }
 
 

@@ -13,58 +13,107 @@
     </header>
 
     <main>
+
+
+       <!--Персональные данные-->
+       
+        
+    <div class="personal_data_div">Пожалуйста укажите Ваш код участника, пол, возраст и класс</div>
+
+    <div class="personal_data_div">
+        <span>Код учасника:  </span>
+        <input class = "personal_select" type="text">
+    </div>  
+       
+    <div class="personal_data_div">
+        <span>Пол:  </span>
+        <select class = "personal_select" name="sex">
+        <option value="" disabled selected hidden>...</option>
+        <option value="male">Мужской</option>
+        <option value="female">Женский</option>
+        </select>
+    </div>
+
+    <div class="personal_data_div">
+        <span>Возраст:  </span>
+        <select class = "personal_select" name="age">
+        <option value="" disabled selected hidden>...</option>
+        <option value="12">12 лет</option>
+        <option value="13">13 лет</option>
+        <option value="14">14 лет</option>
+        <option value="15">15 лет</option>
+        <option value="16">16 лет</option>
+        <option value="17">17 лет</option>
+        <option value="18">18 лет</option>
+        </select>
+    </div>
+
+     <div class="personal_data_div">
+        <span>Класс:  </span>
+        <select class = "personal_select" name="stage">
+        <option value="" disabled selected hidden>...</option>
+        <option value="6">6 класс</option>
+        <option value="7">7 класс</option>
+        <option value="8">8 класс</option>
+        <option value="9">9 класс</option>
+        <option value="10">10 класс</option>
+        <option value="11">11 класс</option>
+        </select>
+    </div>
+
+              
         <!--Индекс устойчивости идентичности-->
 
-<div class="test_name">Прочтите каждое утверждение и определите, насколько вы удовлетворены собой и своим поведением, используя шкалу</div>
 
+    <div class="test_name">Прочтите каждое утверждение и определите, насколько вы удовлетворены собой и своим поведением, используя шкалу</div>
 
-        <div class="identity_question">
-            <p>1. В целом я доволен собой</p>
-            <div>
-                <input type="radio" id="i1_1" name="identity1" value="1">
-                <label for="i1_1">Совсем не согласен</label>
-            </div>
-            <div>
-                <input type="radio" id="i1_2" name="identity1" value="2">
-                <label for="i1_2">Не согласен</label>
-            </div>
-            <div>
-                <input type="radio" id="i1_3" name="identity1" value="3">
-                <label for="i1_3">Частично согласен, частично не согласен</label>
-            </div>       
-            <div>
-                <input type="radio" id="i1_4" name="identity1" value="4">
-                <label for="i1_4">Согласен</label>
-            </div>
-            <div>
-                <input type="radio" id="i1_5" name="identity1" value="5">
-                <label for="i1_5">Полностью согласен</label>
-            </div>
+    <div class="identity_question">
+        <p>1. В целом я доволен собой</p>
+        <div>
+            <input type="radio" id="i1_1" name="identity1" value="1">
+            <label for="i1_1">Совсем не согласен</label>
         </div>
-
-        <div class="identity_question">
-            <p>2. Я чувствую, что мне нечем гордиться</p>
-            <div>
-                <input type="radio" id="i2_1" name="identity2" value="1">
-                <label for="i2_1">Совсем не согласен</label>
-            </div>
-            <div>
-                <input type="radio" id="i2_2" name="identity2" value="2">
-                <label for="i2_2">Не согласен</label>
-            </div>
-            <div>
-                <input type="radio" id="i2_3" name="identity2" value="3">
-                <label for="i2_3">Частично согласен, частично не согласен</label>
-            </div>       
-            <div>
-                <input type="radio" id="i2_4" name="identity2" value="4">
-                <label for="i2_4">Согласен</label>
-            </div>
-            <div>
-                <input type="radio" id="i2_5" name="identity2" value="5">
-                <label for="i2_5">Полностью согласен</label>
-            </div>
+        <div>
+            <input type="radio" id="i1_2" name="identity1" value="2">
+            <label for="i1_2">Не согласен</label>
         </div>
+        <div>
+            <input type="radio" id="i1_3" name="identity1" value="3">
+            <label for="i1_3">Частично согласен, частично не согласен</label>
+        </div>       
+        <div>
+            <input type="radio" id="i1_4" name="identity1" value="4">
+            <label for="i1_4">Согласен</label>
+        </div>
+        <div>
+            <input type="radio" id="i1_5" name="identity1" value="5">
+            <label for="i1_5">Полностью согласен</label>
+        </div>
+    </div>
+
+    <div class="identity_question">
+        <p>2. Я чувствую, что мне нечем гордиться</p>
+        <div>
+            <input type="radio" id="i2_1" name="identity2" value="1">
+            <label for="i2_1">Совсем не согласен</label>
+        </div>
+        <div>
+            <input type="radio" id="i2_2" name="identity2" value="2">
+            <label for="i2_2">Не согласен</label>
+        </div>
+        <div>
+            <input type="radio" id="i2_3" name="identity2" value="3">
+            <label for="i2_3">Частично согласен, частично не согласен</label>
+        </div>       
+        <div>
+            <input type="radio" id="i2_4" name="identity2" value="4">
+            <label for="i2_4">Согласен</label>
+        </div>
+        <div>
+            <input type="radio" id="i2_5" name="identity2" value="5">
+            <label for="i2_5">Полностью согласен</label>
+        </div>
+    </div>
         
         <div class="identity_question">
             <p>3. Иногда я чувствую себя бесполезным</p>
@@ -406,7 +455,7 @@
 
 
         <div class="div_button">
-            <button class="final">Закончить тест</button>
+            <button class="final">Завершить</button>
         </div>
 
 
@@ -420,7 +469,7 @@
     </footer>
 
 
-<div id="result-screen" class="overlay">
+    <div id="result-screen" class="overlay">
     <div class="modal">
         <div class="thank">Спасибо за участие</div>
         
@@ -435,7 +484,7 @@
         </button>
 
         <button class="result_button">
-            Скачать результаты
+            Результаты
         </button>
         </div>
 
