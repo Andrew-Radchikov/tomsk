@@ -50,6 +50,8 @@ main{
 
 .test_name{
     padding-left: 10px;
+    margin-top: 20px;
+
     font-size: 18px;
     font-weight: bold;
 }
@@ -68,6 +70,79 @@ main{
     padding: 10px;
     transition: all 0.3s ease;
 }
+
+
+/* Шкала оценки жизнеспособности семьи */
+.viability_text{
+    display: block;
+    margin-left: 10px;
+    width: 400px;       /* Устанавливаем общую ширину */
+    height: 30px;      /* Устанавливаем общую высоту */
+    box-sizing: border-box; /* Чтобы рамки не «раздували» размер */
+    font-size: 18px;
+}
+
+
+/* Выбор от 1 до 10 */
+
+.rating-container {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.rating-btn {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #333;
+  background: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rating-container.has-selection .rating-btn {
+  opacity: 0.4;
+  filter: grayscale(1);
+}
+
+.rating-container .rating-btn.active {
+  opacity: 1 !important;
+  filter: grayscale(0) !important;
+  background:  rgba(76, 175, 80);
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.rating-btn:hover {
+  border-color: #007bff;
+}
+
+@media (max-width: 500px) {
+  .rating-container {
+    flex-direction: column; /* ВЫСТРАИВАЕМ В СТОЛБИК */
+    
+  }
+}
+
+.viability_question{
+    padding-left: 10px;    
+    font-size: 18px;
+}
+
+.viability_question.error {
+    border: 2px solid #ff4d4d;
+    background-color: #fff5f5;
+    border-radius: 8px;
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+
 
 
 
