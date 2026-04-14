@@ -83,6 +83,22 @@ main{
 }
 
 
+/* Методика самоактивации личности */
+
+.activation_question{
+    padding-left: 10px;    
+    font-size: 18px; 
+}
+
+.activation_question.error {
+    border: 2px solid #ff4d4d;
+    background-color: #fff5f5;
+    border-radius: 8px;
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+
 /* Выбор от 1 до 10 */
 
 .rating-container {
