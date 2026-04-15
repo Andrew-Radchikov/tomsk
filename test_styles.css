@@ -99,9 +99,55 @@ main{
 }
 
 
+/* Методика COPE-30 */
+.cope_text{
+    display: block;
+    margin-left: 10px;
+    width: 400px;       /* Устанавливаем общую ширину */
+    height: 30px;      /* Устанавливаем общую высоту */
+    box-sizing: border-box; /* Чтобы рамки не «раздували» размер */
+    font-size: 18px;
+}
+
+.cope_question{
+    padding-left: 10px;    
+    font-size: 18px; 
+}
+
+.cope_question.error {
+    border: 2px solid #ff4d4d;
+    background-color: #fff5f5;
+    border-radius: 8px;
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+
+/* Уровень выраженности потребности в самопознании */
+.knowledge_question{
+    padding-left: 10px;    
+    font-size: 18px; 
+}
+
+.knowledge_question.error {
+    border: 2px solid #ff4d4d;
+    background-color: #fff5f5;
+    border-radius: 8px;
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+
 /* Выбор от 1 до 10 */
 
 .rating-container {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.rating-container2 {
   display: flex;
   gap: 10px;
   margin-top: 10px;
@@ -121,7 +167,25 @@ main{
   justify-content: center;
 }
 
+.rating-btn2 {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #333;
+  background: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .rating-container.has-selection .rating-btn {
+  opacity: 0.4;
+  filter: grayscale(1);
+}
+
+.rating-container2.has-selection .rating-btn2 {
   opacity: 0.4;
   filter: grayscale(1);
 }
@@ -134,12 +198,29 @@ main{
   transform: scale(1.1);
 }
 
+.rating-container2 .rating-btn2.active {
+  opacity: 1 !important;
+  filter: grayscale(0) !important;
+  background:  rgba(76, 175, 80);
+  color: #fff;
+  transform: scale(1.1);
+}
+
 .rating-btn:hover {
+  border-color: #007bff;
+}
+
+.rating-btn2:hover {
   border-color: #007bff;
 }
 
 @media (max-width: 500px) {
   .rating-container {
+    flex-direction: column; /* ВЫСТРАИВАЕМ В СТОЛБИК */
+    
+  }
+
+  .rating-container2 {
     flex-direction: column; /* ВЫСТРАИВАЕМ В СТОЛБИК */
     
   }
