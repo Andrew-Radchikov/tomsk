@@ -3,6 +3,8 @@
 const finish_button=document.querySelector(".final");
 const control_buttons=document.querySelectorAll(".result_button");
 
+const gallery = document.querySelector('.gallery');
+const items = document.querySelectorAll('.gallery-item');
 
 
 /* Результаты, которые мы собираем  */
@@ -27,7 +29,8 @@ let test4ball = [];
 
 let test5ball = [];
 
-
+let picture_check = false;
+let picture;
 
 let resultPersonalforText = "<br> <b>Персональные данные </b>";
 let result1forText="";
@@ -1009,9 +1012,27 @@ for (let i = 1; i <= 10; i++) {
 
 }
 
+// Картинки
 
 
+items.forEach((item, index) => {
+    item.addEventListener('click', () => {
 
+        picture = index+1;      // Берем текст из атрибута alt
+        picture_check = true;
+        // 1. Убираем класс active у всех картинок
+        items.forEach(el => el.classList.remove('active'));
+        
+        // 2. Добавляем класс active только той, на которую нажали
+        item.classList.add('active');
+        
+        // 3. Включаем режим затемнения остальных (если еще не включен)
+        gallery.classList.add('has-focus');
+
+        // 4. Отслеживаем, какая нажата (для ваших нужд)
+        console.log(picture);
+    });
+});
 
 
 
