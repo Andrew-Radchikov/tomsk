@@ -7,6 +7,11 @@ const gallery = document.querySelector('.gallery');
 const items = document.querySelectorAll('.gallery-item');
 
 
+ let startData = new Date().toLocaleString();
+ let endData;
+
+
+
 /* Результаты, которые мы собираем  */
 let student_id;
 let student_sex;
@@ -31,6 +36,8 @@ let test5ball = [];
 
 let picture_check = false;
 let picture;
+let tree_text_results = [];
+let story = "";
 
 let resultPersonalforText = "<br> <b>Персональные данные </b>";
 let result1forText="";
@@ -38,6 +45,7 @@ let result2forText="";
 let result3forText="";
 let result4forText="";
 let result5forText="";
+let result6forText="";
 
 /* Константы для выдачи интерпритации  */
 
@@ -147,7 +155,10 @@ let knowledgeTotal = ["Не очень нравится рассказывать
     "Может подшутить над собой, нравится отвечать на вопросы о своих интересах и способностях, любит слушать истории из жизни других людей и соотносить с собственным опытом, нравится психология, так как она помогает разобраться в себе. Старается не допускать ошибок в учебе, постоянно стремится что-то изменить в себе, считает это необходимым, направлен на лучшее понимание своего характера, стремится к хорошим отношениям с другими, не смотря на их критику. Обдумывает свои ошибки и делает выводы на будущее, прикладывает волевые усилия для преодоления проблем, любит фильмы и книги, в которых можно анализировать чувства героев, нравятся разговоры на тему общечеловеческих ценностей, любит размышлять на исторические, фантастические и современные темы."];
 let knowledgeLies = "Ваши результаты показали высокий уровень социальной желательности. Это часто случается, когда человек подсознательно стремится представить себя в максимально выгодном свете или предъявляет к себе очень высокие требования. Из-за этого основные показатели теста могут быть менее точными.";
 
-
+let treeInterpritation = ["«Живое пространство», изображен ребенок, сидящий около величественного дерева, корни которого уходят глубоко в землю, а большая крона служит защитой. Это самое яркое из пространств, символизирующее прочную основу и защиту.",
+    "«Мерцающее пространство» изображен темный густой лес, дорога, по которой идет ребенок, поддерживаемый взрослым и свет, который пробивается сквозь деревья, освещая путникам дорогу. По мнению К. Адамс, это пространство символизирует стремление к пониманию своей культуры и традиций при поддержке взрослого.",
+    "«Непрозрачное пространство» изображены сумерки, солнце уходит за горизонт, практически не видно дерева, но хорошо различим темный силуэт ребенка. Картина символизирует одиночество, тревогу, беспокойство и страх. Традиции еще присутствуют, но есть разрывы, противоречия и нет ощущения поддержки.",
+    "«Невидимое пространство» с деревьями в тумане, на картине нет ребенка. Иллюстрация символизирует сомнения, неприятие других, отдаленность от традиций и культуры, «утрату корней»."];
 
 /* Функции проверяющие заполнение и подсвечивающие незаполненные вопросы */
 
@@ -303,6 +314,43 @@ function checkKnowledgeFields(){
 
 
 
+function checkTreeFields(){
+    let checked = true;
+
+    const fields = document.querySelectorAll('.tree_text');
+    const bigtext = document.querySelector('.tree_text_large');
+    const pictureArea = document.querySelector('.gallery');
+    
+    fields.forEach(field => {
+        if (field.value === "") {
+            field.style.border = "2px solid red"; // Подсвечиваем пустые поля
+            checked = false;
+        } 
+        else {
+            field.style.border = ""; // Убираем рамку, если поля заполнили
+        }
+    });
+
+    if(! picture_check){
+        pictureArea.style.border = "2px solid red";
+        checked = false;
+    }
+    else{
+        pictureArea.style.border = "";
+    }
+
+      
+    if(bigtext.value === ""){
+        bigtext.style.border = "2px solid red";
+        checked = false;
+    }
+    else{
+        bigtext.style.border = "";
+    }
+
+    return checked;
+}
+
 
 
 
@@ -323,12 +371,8 @@ function personalResults(){
         student_sex = fields[1].value;
         student_age = Number(fields[2].value);
         student_class = Number(fields[3].value);
-        let text_sex = "Мужской";
-        if(student_sex == "female"){
-            text_sex = "Женский";
-        }
         resultPersonalforText += `<br> Участник с id: ${student_id}`;
-        resultPersonalforText += `<br> Пол участника: ${text_sex}`;
+        resultPersonalforText += `<br> Пол участника: ${student_sex}`;
         resultPersonalforText += `<br> Возраст, лет: ${student_age}`;
         resultPersonalforText += `<br> Класс обучения: ${student_class}`;
     }
@@ -945,11 +989,31 @@ function knowledgeResults(){
 
 
 
+function treeResults(){
+
+    if(checkTreeFields()){
+        const fields = document.querySelectorAll('.tree_text');
+        const bigtext = document.querySelector('.tree_text_large');
+       
+    fields.forEach(field => {
+        tree_text_results.push(field.value);
+    });
+
+    story = bigtext.value;
+
+
+        result6forText += "<br> <br> Методика «Пространство Дерева и Света»  <br>";
+        result6forText += `<br> <b> Выбран рисунок: ${picture}</b><br>`;
+        result6forText += `<br> <b> Интерпритация: </b> ${treeInterpritation[picture-1]} <br>`;
+        result6forText += `<br> <b>Что чувствует ребенок на картинке, которую Вы выбрали?: </b> ${tree_text_results[0]} <br>`;
+        result6forText += `<br> <b>О чем думает ребенок на картинке, которую Вы выбрали?: </b> ${tree_text_results[1]} <br>`;
+        result6forText += `<br> <b>Что делает ребенок на картинке, которую Вы выбрали?: </b> ${tree_text_results[2]} <br>`;
+        result6forText += `<br> <b>История: </b> ${story} <br>`;
 
 
 
-
-
+    }
+}
 
 
 
@@ -1029,17 +1093,164 @@ items.forEach((item, index) => {
         // 3. Включаем режим затемнения остальных (если еще не включен)
         gallery.classList.add('has-focus');
 
-        // 4. Отслеживаем, какая нажата (для ваших нужд)
-        console.log(picture);
     });
 });
 
 
+// Отправка данных
+
+function sendData(){
+        
+    endData = new Date().toLocaleString();
+    let data = new FormData();
+    data.append("startData", startData);
+    data.append("endData", endData);
+    data.append("id", student_id);
+    data.append("sex", student_sex);
+    data.append("age", student_age);
+    data.append("klass", student_class);
+// Индекс устойчивости идентичности
+    data.append("i1", test1ball[0]);
+    data.append("i2", test1ball[1]);
+    data.append("i3", test1ball[2]);
+    data.append("i4", test1ball[3]);
+    data.append("i5", test1ball[4]);
+    data.append("i6", test1ball[5]);
+    data.append("i7", test1ball[6]);
+    data.append("i8", test1ball[7]);
+    data.append("i9", test1ball[8]);
+    data.append("i10", test1ball[9]);
+    data.append("i11", test1ball[10]);
+    data.append("i12", test1ball[11]);
+    data.append("i13", test1ball[12]);
+    data.append("i14", test1ball[13]);
+    data.append("i15", test1ball[14]);
+    data.append("i16", test1ball[15]);   
+
+// Шкала оценки жизнеспособности семьи 
+    data.append("vq1", viability_text_results[1]);
+    data.append("vq2", viability_text_results[2]);
+    data.append("vq3", viability_text_results[3]);
+    data.append("intense", intense); 
+    data.append("vq4", viability_text_results[0]);
+
+    data.append("v1", test2ball[0]);
+    data.append("v2", test2ball[1]);
+    data.append("v3", test2ball[2]);
+    data.append("v4", test2ball[3]);
+    data.append("v5", test2ball[4]);
+    data.append("v6", test2ball[5]);
+    data.append("v7", test2ball[6]);
+    data.append("v8", test2ball[7]);
+    data.append("v9", test2ball[8]);
+    data.append("v10", test2ball[9]);
+    data.append("v11", test2ball[10]);
+    data.append("v12", test2ball[11]);
+    data.append("v13", test2ball[12]);
+    data.append("v14", test2ball[13]);
+    data.append("v15", test2ball[14]);
+    data.append("v16", test2ball[15]);
+    data.append("v17", test2ball[16]);
+    data.append("v18", test2ball[17]);
+    data.append("v19", test2ball[18]);
+    data.append("v20", test2ball[19]);
+
+// Методика самоактивации личности
+
+    data.append("a1", test3ball[0]);
+    data.append("a2", test3ball[1]);
+    data.append("a3", test3ball[2]);
+    data.append("a4", test3ball[3]);
+    data.append("a5", test3ball[4]);
+    data.append("a6", test3ball[5]);
+    data.append("a7", test3ball[6]);
+    data.append("a8", test3ball[7]);
+    data.append("a9", test3ball[8]);
+
+// COPE30
+
+    data.append("cq1", cope_text_results[0]);
+    data.append("cq2", cope_text_results[1]);
+    data.append("intense2", intense2); 
+
+    data.append("c1", test4ball[0]);
+    data.append("c2", test4ball[1]);
+    data.append("c3", test4ball[2]);
+    data.append("c4", test4ball[3]);
+    data.append("c5", test4ball[4]);
+    data.append("c6", test4ball[5]);
+    data.append("c7", test4ball[6]);
+    data.append("c8", test4ball[7]);
+    data.append("c9", test4ball[8]);
+    data.append("c10", test4ball[9]);
+    data.append("c11", test4ball[10]);
+    data.append("c12", test4ball[11]);
+    data.append("c13", test4ball[12]);
+    data.append("c14", test4ball[13]);
+    data.append("c15", test4ball[14]);
+    data.append("c16", test4ball[15]);
+    data.append("c17", test4ball[16]);
+    data.append("c18", test4ball[17]);
+    data.append("c19", test4ball[18]);
+    data.append("c20", test4ball[19]);
+    data.append("c21", test4ball[20]);
+    data.append("c22", test4ball[21]);
+    data.append("c23", test4ball[22]);
+    data.append("c24", test4ball[23]);
+    data.append("c25", test4ball[24]);
+    data.append("c26", test4ball[25]);
+    data.append("c27", test4ball[26]);
+    data.append("c28", test4ball[27]);
+    data.append("c29", test4ball[28]);
+    data.append("c30", test4ball[29]);
+
+// Уровень выраженности потребности в самопознании
+
+    data.append("k1", test5ball[0]);
+    data.append("k2", test5ball[1]);
+    data.append("k3", test5ball[2]);
+    data.append("k4", test5ball[3]);
+    data.append("k5", test5ball[4]);
+    data.append("k6", test5ball[5]);
+    data.append("k7", test5ball[6]);
+    data.append("k8", test5ball[7]);
+    data.append("k9", test5ball[8]);
+    data.append("k10", test5ball[9]);
+    data.append("k11", test5ball[10]);
+    data.append("k12", test5ball[11]);
+    data.append("k13", test5ball[12]);
+    data.append("k14", test5ball[13]);
+    data.append("k15", test5ball[14]);
+    data.append("k16", test5ball[15]);
+    data.append("k17", test5ball[16]);
+    data.append("k18", test5ball[17]);
+    data.append("k19", test5ball[18]);
+    data.append("k20", test5ball[19]);
+    
+// Tree
+
+    data.append("pic", picture);
+    data.append("tq1", tree_text_results[0]);
+    data.append("tq2", tree_text_results[1]);
+    data.append("tq3", tree_text_results[2]);
+    data.append("story", story);
 
 
 
 
 
+    fetch(`https://script.google.com/macros/s/AKfycbyamshsf5Dt17Y-dAF5w65D-UaBP4A60Xh8Gv2BulGbj4xHsGCD1zZcO0F3an7s5FqnpQ/exec`, {method: "POST", mode: 'no-cors', body: data})
+}
+
+
+
+window.addEventListener('beforeunload', function (e) {
+    // Отменяем стандартное поведение (нужно для работы события)
+    e.preventDefault();
+    // В современных браузерах текст ниже может не показаться (будет системный), 
+    // но эта строка нужна для активации окна.
+    e.returnValue = '';
+});
 
 
 
@@ -1051,9 +1262,11 @@ finish_button.addEventListener("click", ()=>{
     const isActivation = checkActivationFields();
     const isCope = checkCopeFields();
     const isKnowledge = checkKnowledgeFields();
+    const isTree = checkTreeFields();
  
     // Проверяем все ли блоки заполнены
-    if(isIdentity && isPersonal && isViability && isActivation && isCope && isKnowledge){
+    if(isIdentity && isPersonal && isViability && isActivation && isCope && isKnowledge && isTree){
+        
         const overlay = document.getElementById('result-screen');
         const container = document.getElementById('results-data');
         // Блокируем скролл основной страницы
@@ -1065,6 +1278,8 @@ finish_button.addEventListener("click", ()=>{
         activationResults();
         copeResults();
         knowledgeResults();
+        treeResults();
+        sendData();
         // Готовим результат на странице, но скрываем его
         let content = "";
         content += resultPersonalforText;
@@ -1074,6 +1289,7 @@ finish_button.addEventListener("click", ()=>{
         content += result3forText;
         content += result4forText;
         content += result5forText;
+        content += result6forText;
         container.innerHTML = content;
         container.style.display = 'none';
         overlay.style.display = 'flex';
@@ -1112,6 +1328,10 @@ control_buttons[1].addEventListener("click", ()=>{
     .replaceAll('<b>', '')
     .replaceAll('</b>', '');
     data += result5forText
+    .replaceAll('<br>', '\n')
+    .replaceAll('<b>', '')
+    .replaceAll('</b>', '');
+     data += result6forText
     .replaceAll('<br>', '\n')
     .replaceAll('<b>', '')
     .replaceAll('</b>', '');

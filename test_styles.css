@@ -18,6 +18,15 @@ header{
     background-color: rgba(175, 221, 220);
 }
 
+@media (max-width: 700px) {
+    
+header{
+    height: 100px;
+    font-size: 28px;
+    }
+    
+}
+
 main{
     display: flex;
     flex: 1;
