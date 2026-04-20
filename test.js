@@ -933,11 +933,12 @@ function knowledgeResults(){
         let scale2 = test5ball[1] + test5ball[4] + test5ball[7] + test5ball[10] + test5ball[13];
         let scale3 = test5ball[2] + test5ball[5] + test5ball[8] + test5ball[11] + test5ball[14];
         let total = scale1 + scale2 + scale3;
-        let lie = test5ball[15] + test5ball[16] + test5ball[17] + test5ball[18] + test5ball[19];
+        let lie = 25-(test5ball[15] + test5ball[16] + test5ball[17] + test5ball[18] + test5ball[19]);
+        console.log(lie);
 
         result5forText += "<br> <br> Уровень выраженности потребности в самопознании  <br>";
         if(lie > 14) {
-            result5forText += `<br> <b> !!${knowledgeLies} </b><br>`;
+            result1forText += `<br> <b> !!${knowledgeLies} </b><br>`;
         }
         result5forText += `<br> <b> Потребность в познании себя через других: ${scale1} </b><br>`;
         if(scale1 <= 14){
@@ -1272,12 +1273,12 @@ finish_button.addEventListener("click", ()=>{
         // Блокируем скролл основной страницы
         document.body.classList.add('no-scroll');
         // Вычисляем результаты и пишем интерпретацию
+        knowledgeResults();
         personalResults();
         identityResults();
         viabilityResults();
         activationResults();
         copeResults();
-        knowledgeResults();
         treeResults();
         sendData();
         // Готовим результат на странице, но скрываем его
@@ -1293,6 +1294,9 @@ finish_button.addEventListener("click", ()=>{
         container.innerHTML = content;
         container.style.display = 'none';
         overlay.style.display = 'flex';
+    }
+    else{
+        alert("Вы не ответили на все вопросы. Вернитесь, пожалуйста, и ответьте на выделенные вопросы");
     }
 })
 
