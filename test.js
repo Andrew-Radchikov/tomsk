@@ -723,7 +723,7 @@ function copeResults(){
         
         result4forText += "<br> <br> COPE-30A <br>";
         result4forText += `<br> <b> Трудная жизненная ситуация:</b> ${cope_text_results[0]} <br>`;
-        result4forText += `<br> <b> Когда она приозошла:</b> ${cope_text_results[1]} <br>`;
+        result4forText += `<br> <b> Когда она произошла:</b> ${cope_text_results[1]} <br>`;
         result4forText += `<br> <b> Уровень трудности ситуации:</b> ${intense2} <br>`;
       
         for (let i=1; i<= 30; i++){
@@ -951,7 +951,7 @@ function knowledgeResults(){
             result5forText += knowledgeOther[2];
         }
         
-        result5forText += `<br> <b> Шкала Потребность в самоизменении: ${scale2} </b><br>`;
+        result5forText += `<br> <b> Потребность в самоизменении: ${scale2} </b><br>`;
         if(scale2 <= 14){
             result5forText += knowledgeChange[0];
         }
@@ -1002,17 +1002,13 @@ function treeResults(){
 
     story = bigtext.value;
 
-
         result6forText += "<br> <br> Методика «Пространство Дерева и Света»  <br>";
         result6forText += `<br> <b> Выбран рисунок: ${picture}</b><br>`;
-        result6forText += `<br> <b> Интерпритация: </b> ${treeInterpritation[picture-1]} <br>`;
+        result6forText += `<br> <b> Интерпретация: </b> ${treeInterpritation[picture-1]} <br>`;
         result6forText += `<br> <b>Что чувствует ребенок на картинке, которую Вы выбрали?: </b> ${tree_text_results[0]} <br>`;
         result6forText += `<br> <b>О чем думает ребенок на картинке, которую Вы выбрали?: </b> ${tree_text_results[1]} <br>`;
         result6forText += `<br> <b>Что делает ребенок на картинке, которую Вы выбрали?: </b> ${tree_text_results[2]} <br>`;
         result6forText += `<br> <b>История: </b> ${story} <br>`;
-
-
-
     }
 }
 
