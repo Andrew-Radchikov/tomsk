@@ -934,12 +934,15 @@ function knowledgeResults(){
         let scale3 = test5ball[2] + test5ball[5] + test5ball[8] + test5ball[11] + test5ball[14];
         let total = scale1 + scale2 + scale3;
         let lie = 25-(test5ball[15] + test5ball[16] + test5ball[17] + test5ball[18] + test5ball[19]);
-        console.log(lie);
+        
 
         result5forText += "<br> <br> Уровень выраженности потребности в самопознании  <br>";
+        result1forText += `<br> <br> <b> Шкала социальной желательности: ${lie} </b><br>`;
+
         if(lie > 14) {
             result1forText += `<br> <b> !!${knowledgeLies} </b><br>`;
         }
+
         result5forText += `<br> <b> Потребность в познании себя через других: ${scale1} </b><br>`;
         if(scale1 <= 14){
             result5forText += knowledgeOther[0];
